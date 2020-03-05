@@ -79,10 +79,15 @@ export class ProductsService {
     console.log("holita:", this.products.find(product => (product.Id).toString() === id));
 
     let productSelected = this.products.find(product => (product.Id).toString() === id);
+
     // console.log("jasdjash", productSelected.name);
     
     return productSelected;
+
     
+    
+    //return this.httpClient.get(`${this.REST_API_SERVER}/${id}`);ESTO
+
     // return this.products.find(product => product.Id === id);
     
     
