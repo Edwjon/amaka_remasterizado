@@ -4,6 +4,7 @@ import { HomeComponent } from './modules/home/home/home.component';
 import { CommonNavigationComponent } from './navigation/common-navigation/common-navigation.component';
 import { AdminNavigationComponent } from './navigation/admin-navigation/admin-navigation.component';
 import { LoginComponent } from './modules/home/login/login.component';
+import { NewUserComponent } from './modules/home/new-user/new-user.component';
 // import { ShowDataComponent } from './show-data/show-data.component';
 // import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
@@ -25,7 +26,11 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent
-      }
+      },
+      {
+        path: 'newUser',
+        component: NewUserComponent
+      },
     ]
   },
   {

@@ -15,10 +15,6 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
-        path: 'newUser',
-        component: NewUserComponent
-      },
-      {
         path: 'product-details/:id',
         component: ProductDetailsComponent
       },
