@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './modules/home/home/home.component';
 import { CommonNavigationComponent } from './navigation/common-navigation/common-navigation.component';
 import { AdminNavigationComponent } from './navigation/admin-navigation/admin-navigation.component';
+import { LoginComponent } from './modules/home/login/login.component';
 // import { ShowDataComponent } from './show-data/show-data.component';
 // import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
@@ -10,27 +11,22 @@ import { AdminNavigationComponent } from './navigation/admin-navigation/admin-na
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/login',
     pathMatch: 'full',
   },
   {
     path: '',
     component: CommonNavigationComponent,
     children: [
-      // {
-      //   path: 'home',
-      //   loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
-      // },
       {
         path: 'home',
         loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
       },
+      {
+        path: 'login',
+        component: LoginComponent
+      }
     ]
-  },
-  {
-    path: '',
-    redirectTo: '/admin',
-    pathMatch: 'full',
   },
   {
     path: '',

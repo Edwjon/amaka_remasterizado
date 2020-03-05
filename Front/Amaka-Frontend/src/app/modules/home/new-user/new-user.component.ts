@@ -24,11 +24,11 @@ export class NewUserComponent implements OnInit {
   }
 
   saveUser(){
-    this.router.navigate(["/home/login"]);
+    this.router.navigate(["/login"]);
   }
 
   backToLogin(){
-    this.router.navigate(["/home/login"]);
+    this.router.navigate(["/login"]);
   }
 
   ngOnInit(){

@@ -28,6 +28,7 @@
     padding-top: 0.5rem;
     padding-left: 3rem;
   }
+
   .title-clickeable {
     cursor: pointer;
 
@@ -43,7 +44,7 @@
     }
 
     &:hover {
-      color: white;
+      // color: white;
     }
   }
 
@@ -68,5 +69,24 @@
     &:hover{
       color: white;
     }
+  }
+}
+
+
+.product-element{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  span.product-title{
+    font-size: 1.1em;
+  }
+
+  span.quantity{
+    font-size: .9em;
+  }
+
+  span.price{
+    font-size: .9em;
   }
 }

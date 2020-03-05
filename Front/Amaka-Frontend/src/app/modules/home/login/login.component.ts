@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     if ((this.loginForm.value.user === this.usuario) && (this.loginForm.value.password === this.contrasena)) {
       
       alert('cool');
-      this.router.navigate(["/home/home"]);
+      this.router.navigate(["/home"]);
       
     } else {
       alert('Usuario no encontrado, por favor ingresa un usuario válido o crea uno nuevo');
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
   }
 
   newUserButton(){
-    this.router.navigate(["/home/newUser"]);
+    this.router.navigate(["/newUser"]);
   }
 
 }

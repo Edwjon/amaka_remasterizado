@@ -1,22 +1,26 @@
 <section class="overlay-wrapper" [ngClass]="{'show': status}">
-    <div class="overlay" [ngClass]="{'show': status}" (click)='toggleSideBar()' >
+    <div class="overlay" [ngClass]="{'show': status}" (click)='toggleSideBar()'>
         <div class="close-btn">
             <img src="https://static.thenounproject.com/png/26894-200.png">
         </div>
     </div>
-    <div class="side-bar-wrapper" [ngClass]="{'show': status}">
-        <div class="title-box">
+    <div class="shopping-cart-wrapper side-bar-wrapper" [ngClass]="{'show': status}">
+        <div class="shopping-cart__header title-box">
             <img src="../../../assets/shopping-cart.png">
             <span> Carrito </span>
         </div>
-        <div class="text-box">
-            <span class="title title-clickeable" *ngFor="let product of products" (click)='toggleSideBar()'>
-                    Producto: {{ product.name }} , cantidad: {{ product.quantity}}, precio: {{product.price}}
-            </span>
+        <div class="shopping-cart__products">
+            <div class="title title-clickeable product-element" *ngFor="let product of products"
+                (click)='toggleSideBar()'>
+                <span class="product-title"> Producto: {{ product?.name }} </span>
+                <span class="quantity"> Cantidad: {{ product?.quantity}} </span>
+                <span class="price"> Precio: {{product?.price | currency: 'USD' }}</span>
+            </div>
+        </div>
+        <div class="shopping-cart__price">
             <span class="title title-clickeable">
-                Precio total:
+                TOTAL <b> {{ (shoppingCartSV.totalCart$ | async) | currency: 'USD' }} </b>
             </span>
         </div>
     </div>
 </section>
-

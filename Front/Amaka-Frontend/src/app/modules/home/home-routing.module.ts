@@ -6,25 +6,17 @@ import { LoginComponent } from './login/login.component';
 import { NewUserComponent } from './new-user/new-user.component';
 
 
-const routes: Routes = [ {
-  path: '',
-  redirectTo: '/home/login',
-  pathMatch: 'full'
-},
+const routes: Routes = [ 
   {
     path: '',
     children:[
       {
-        path: 'login',
-        component: LoginComponent
+        path: '',
+        component: HomeComponent
       },
       {
         path: 'newUser',
         component: NewUserComponent
-      },
-      {
-        path: 'home',
-        component: HomeComponent
       },
       {
         path: 'product-details/:id',

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from 'src/app/models/product';
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpParams } from "@angular/common/http";
+import { Observable } from 'rxjs/internal/Observable';
 
 // import {  throwError } from 'rxjs';
 // import { retry, catchError } from 'rxjs/operators';
@@ -52,16 +53,16 @@ export class ProductsService {
   // }];
 
 
-  constructor(private httpClient: HttpClient) { 
-    this.sendGetRequest().subscribe((data: Product[])=>{
+  constructor(private httpClient: HttpClient) {
+    this.sendGetRequest().subscribe((data: Product[]) => {
       console.log("qloq aqui", data);
-      
+
       this.products = data;
-    }) 
+    })
   }
 
-  public sendGetRequest(){
-    
+  public sendGetRequest() {
+
     return this.httpClient.get(this.REST_API_SERVER);
   }
 
@@ -72,29 +73,17 @@ export class ProductsService {
   // }
 
   getProduct(id) {
-    
-    console.log("no hay", this.products);
-    console.log("epale:", id);
 
-    console.log("holita:", this.products.find(product => (product.Id).toString() === id));
-
-    let productSelected = this.products.find(product => (product.Id).toString() === id);
+    // console.log("holita:", this.products.find(product => (product.Id).toString() === id));
+    // let productSelected = this.products.find(product => (product.Id).toString() === id);
 
     // console.log("jasdjash", productSelected.name);
-    
-    return productSelected;
+    console.log(`${this.REST_API_SERVER}/${id}`);
+    // return this.httpClient.get(`${this.REST_API_SERVER}/?Id:${id}`) as Observable<Product>
+    return this.httpClient.get(this.REST_API_SERVER, {params: new HttpParams({fromString: `Id=${id}`}), observe: "response"})
 
-    
-    
-    //return this.httpClient.get(`${this.REST_API_SERVER}/${id}`);ESTO
-
+    // return productSelected;
     // return this.products.find(product => product.Id === id);
-    
-    
   }
 
-  // getProductName(id) {
-  //   let productSelected = this.products.find(product => product.Id === id);
-  //   return productSelected.name;
-  // }
 }

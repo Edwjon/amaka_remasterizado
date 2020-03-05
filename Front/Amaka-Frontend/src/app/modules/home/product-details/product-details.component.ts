@@ -5,6 +5,7 @@ import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { SidebarService } from 'src/app/services/sideBar/side-bar.service';
 import { ShoppingCartService } from 'src/app/services/shoppingCart/shopping-cart.service';
+import { first } from 'rxjs/operators'
 
 @Component({
   selector: 'app-product-details',
@@ -33,7 +34,7 @@ export class ProductDetailsComponent implements OnInit {
 
   createProductsQuantityForm() {
     this.productsQuantityForm = this.fb.group({
-      quantity: ['', [Validators.required, Validators.min(1)]],
+      quantity: [ 0 , [Validators.required, Validators.min(1)]],
     });
   }
 
@@ -43,7 +44,7 @@ export class ProductDetailsComponent implements OnInit {
 
   addProduct (){
     this.route.paramMap.subscribe( params => {
-      this.shoppingCartSV.addProduct(params.get('id'), this.productsQuantityForm.value.quantity);
+      this.shoppingCartSV.addProduct(this.selectedProduct, this.productsQuantityForm.value.quantity);
     })
     
   }
@@ -51,10 +52,20 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit() {
       this.route.paramMap.subscribe( params => {
       // this.productId = this.route.snapshot.paramMap.get('id');
-      this.selectedProduct = this.productService.getProduct(params.get('id'));
-      // console.log(this.productId);
-      console.log("jepa:", this.selectedProduct);
-      
+
+      // this.productService.getProduct(3).pipe( first() ).subscribe( data => {
+      //   this.selectedProduct = data.body[0];
+      // })
+
+      this.productService.getProduct(params.get('id')).pipe( first() ).toPromise()
+      .then( res => {
+        console.log(res)
+        // Revisar si es necesario cambiar cuando se conecte a Django 
+        this.selectedProduct = res.body[0];
+      })
+      .catch( err => {
+        console.error(err)
+      }); 
     })
     
 

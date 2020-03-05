@@ -6,7 +6,7 @@
                     {{selectedProduct?.name | uppercase }}
                     <!-- Lucky Charms -->
                 </h1>
-                <img src="https://image.flaticon.com/icons/png/512/0/340.png" routerLink="/home/home">
+                <img src="https://image.flaticon.com/icons/png/512/0/340.png" routerLink="/home">
             </div>
             <div class="col-2 side-bar-btn" (click)=toggleSideBar()>
                 <img src="../../../assets/shopping-cart.png">
@@ -14,7 +14,7 @@
         </div>
         <div class="row info-wrapper">
             <div class="col-12 col-md-6 col-lg-6 product-poster">
-                <img [src]="selectedProduct.img">
+                <img [src]="selectedProduct?.img">
                 <!-- src="https://www.nestle-cereals.com/co/sites/g/files/qirczx471/f/styles/scale_312/public/product_gallery/luckycharms-297g-a.png?itok=AXziGyk1" -->
             </div>
             <div class="col-12 col-md-6 col-lg-6 product-info">
@@ -23,7 +23,7 @@
                         <!-- <span>Tamaño: {{selectedProduct.size}}</span> -->
                     </div>
                     <div class="col-12 product-subtitle">
-                        <span>Precio: {{selectedProduct.price}}</span>
+                        <span>Precio: {{selectedProduct?.price}}</span>
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="row form form-box">

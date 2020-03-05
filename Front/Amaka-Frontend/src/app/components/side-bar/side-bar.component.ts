@@ -13,7 +13,7 @@ export class SideBarComponent implements OnInit {
   status = false
   products: ShoppingProduct[];
 
-  constructor(private sideBarSV: SidebarService, private shoppingCartSV:ShoppingCartService) {
+  constructor(private sideBarSV: SidebarService, public shoppingCartSV:ShoppingCartService) {
 
     this.sideBarSV.status.subscribe(e => {
       this.status=e;
@@ -23,7 +23,6 @@ export class SideBarComponent implements OnInit {
     this.shoppingCartSV.shoppingCartProducts$.subscribe( products => {
       this.products = products;
       console.log("porduct", products);
-      
     })
    }
 
