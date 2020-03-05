@@ -11,7 +11,10 @@
         </div>
         <div class="text-box">
             <span class="title title-clickeable" *ngFor="let product of products" (click)='toggleSideBar()'>
-                    Producto: {{ product.name }} , cantidad: {{ product.quantity}}
+                    Producto: {{ product.name }} , cantidad: {{ product.quantity}}, precio: {{product.price}}
+            </span>
+            <span class="title title-clickeable">
+                Precio total:
             </span>
         </div>
     </div>

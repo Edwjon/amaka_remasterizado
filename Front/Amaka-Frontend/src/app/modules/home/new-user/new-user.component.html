@@ -1,0 +1,44 @@
+<section class="am-section am-section--full">
+        <div class="row form form-box">
+            <div class="col-12">
+                <form [formGroup]="userForm">
+                    <div class="form-row">
+                        <div class="col-12 col-md-6 form-group">
+                            <label>
+                                Nombre
+                            </label>
+                            <input type="text" class="form-control" formControlName="name">
+                        </div>
+                        <div class="col-12 col-md-6 form-group">
+                            <label>
+                                Apellido
+                            </label>
+                            <input type="text" class="form-control" formControlName="lastName">
+                        </div>
+                        <div class="col-12 col-md-6 form-group">
+                            <label>
+                                Correo
+                            </label>
+                            <input type="email" class="form-control" formControlName="email">
+                        </div>
+                        <div class="col-12 col-md-6 form-group">
+                            <label>
+                                Contraseña
+                            </label>
+                            <input type="text" class="form-control" formControlName="password">
+                        </div>
+                        <div class="col-12 buttons">
+                            <button class="btn am-btn am-btn--primary " type="submit"
+                                [disabled]="userForm.invalid" (click)="saveUser()">
+                                Guardar
+                            </button>
+                            <button class="btn am-btn am-btn--primary" type="button"
+                                (click)="backToLogin()">
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</section>

@@ -17,6 +17,10 @@ const routes: Routes = [
     path: '',
     component: CommonNavigationComponent,
     children: [
+      // {
+      //   path: 'home',
+      //   loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
+      // },
       {
         path: 'home',
         loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)

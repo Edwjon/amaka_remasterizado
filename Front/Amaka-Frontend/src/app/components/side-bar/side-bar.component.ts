@@ -30,6 +30,7 @@ export class SideBarComponent implements OnInit {
   ngOnInit() {
   }
 
+
   toggleSideBar(){
     this.sideBarSV.toggleShoppingCartStatus();
   }

@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from amaka_app.models import ExampleModel
+from amaka_app.models import Producto
 
-class ExampleModelSerializer(serializers.ModelSerializer):
+class ProductoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ExampleModel
-        fields = ('firstname', 'lastname')
+        model = Producto
+        fields = ('nombre', 'costo', 'ingrediente', 'cantidad', 'imagen', 'tamano', 'vendedor')
